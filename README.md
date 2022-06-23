@@ -24,5 +24,38 @@ Sebuah alat untuk mengenskripsi kode script bash 🛡️
 * `$ cd blind-bash`
 * `$ bash blind-bash --help` atau `./blind-bash.sh --help` untuk info lebih lanjut.
 
+# Perintah
+Tools ini menggunakan baris perintah. Berikut ini adalah baris perintahnya!
+```shell
+Usage: blind-bash.sh [OPTION] [FILE 1] [FILE 2] etc...
+Encrypted files bash, so it can't be read.
+
+Option:
+    -h, --help            print help this tools
+    -v, --version         print version of this tools
+    -f, --file            starting encrypted files name
+
+Report bugs <team.thea@yahoo.com>
+```
+
+# Copyright
+```text
+Blind Bash, tools for obfuscated Bash script
+Copyright (C) 2022 Team Thea
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+```
+
 # Report bugs
 [![Email](https://img.shields.io/badge/Yahoo%20Mail-grey?style=plastic&color=202a33&logo=yahoo&logoColor=blueviolet)](mailto:team.thea@yahoo.com)
