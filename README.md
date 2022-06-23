@@ -9,6 +9,7 @@ Sebuah alat untuk mengenskripsi kode script bash 🛡️
 [![Issues](https://img.shields.io/github/issues/TeamThea/blind-bash?label=Issue&style=flat-square&color=blueviolet)](https://github.com/TeamThea/blind-bash/issues/)
 [![Tag](https://img.shields.io/github/tag/TeamThea/blind-bash?label=Tag&style=flat-square&color=green)](https://github.com/TeamThea/blind-bash/tags/)
 [![Watchers](https://img.shields.io/github/watchers/TeamThea/blind-bash?label=Watch&style=flat-square&color=01ffd1)](https://github.com/TeamThea/blind-bash/watchers/)
+[![Pull-requests](https://img.shields.io/github/issues-pr/TeamThea/blind-bash?label=Pull%20requests&style=flat-square&color=0000ff)](https://github.com/TeamThea/blind-bash/pull/)
 [![License](https://img.shields.io/github/license/TeamThea/blind-bash?label=License&logo=gnu&style=flat-square)](https://www.gnu.org/licenses/agpl-3.0.html)
 
 # Petunjuk Penginstallan
@@ -61,6 +62,3 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 # Report bugs
 [![Email](https://img.shields.io/badge/Yahoo%20Mail-grey?style=plastic&color=202a33&logo=yahoo&logoColor=blueviolet)](mailto:team.thea@yahoo.com)
-
-# Contributors over Times
-[![Contributors over time](https://contributor-graph-api.apiseven.com/contributors-svg?chart=contributorOverTime&repo=TeamThea/blind-bash)](https://www.apiseven.com/en/contributor-graph?chart=contributorOverTime&repo=TeamThea/blind-bash)
