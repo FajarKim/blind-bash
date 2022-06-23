@@ -1,2 +1,2 @@
-# blind-bash
-Tools for obfuscated bash script 🛡️
+# Blind Bash
+Sebuah alat untuk mengenskripsi kode script bash 🛡️
