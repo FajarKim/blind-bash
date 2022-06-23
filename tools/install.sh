@@ -206,7 +206,7 @@ create_symboliclink () {
 
   echo "${FMT_BOLD}${FMT_BLUE}Create symbolic link...${FMT_RESET}"
 
-  if [ -r "$BLINDBASH"/blind-bash.sh && -r "$BLINDBASH"/tools/update.sh && -r "$BLINDBASH"/tools/uninstall.sh ]; then
+  if [[ -r "$BLINDBASH"/blind-bash.sh && -r "$BLINDBASH"/tools/update.sh && -r "$BLINDBASH"/tools/uninstall.sh ]]; then
     # Create symbolic link blind-bash.sh
     if tail $tail_n +$skip <"${BLINDBASH}/blind-bash.sh" | ln -s "$BLINDBASH"/blind-bash.sh "$PATH"/blind-bash >/dev/null 2>&1; then
       if [ ! -x "$PATH"/blind-bash ]; then
