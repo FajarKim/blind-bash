@@ -7,6 +7,7 @@ Sebuah alat untuk mengenskripsi kode script bash 🛡️
 ![Stars](https://img.shields.io/github/stars/TeamThea/blind-bash?label=Star&style=flat-square&color=red)
 ![Forks](https://img.shields.io/github/forks/TeamThea/blind-bash?label=Fork&style=flat-square&color=orange)
 ![Issues](https://img.shields.io/github/issues/TeamThea/blind-bash?label=Issue&style=flat-square&color=blueviolet)
+![Tag](https://img.shields.io/github/tag/TeamThea/blind-bash?label=Tags&style=flat-square&color=green)
 [![License](https://img.shields.io/github/license/TeamThea/blind-bash?label=License&logo=gnu&style=flat-square)](https://www.gnu.org/licenses/agpl-3.0.html)
 
 # Petunjuk Penginstallan
