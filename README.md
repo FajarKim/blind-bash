@@ -4,10 +4,11 @@
 Sebuah alat untuk mengenskripsi kode script bash 🛡️
 
 ![Size](https://img.shields.io/github/languages/code-size/TeamThea/blind-bash?label=Blind%20Bash&style=flat-square&logo=github)
-![Stars](https://img.shields.io/github/stars/TeamThea/blind-bash?label=Star&style=flat-square&color=red)
-![Forks](https://img.shields.io/github/forks/TeamThea/blind-bash?label=Fork&style=flat-square&color=orange)
-![Issues](https://img.shields.io/github/issues/TeamThea/blind-bash?label=Issue&style=flat-square&color=blueviolet)
-![Tag](https://img.shields.io/github/tag/TeamThea/blind-bash?label=Tags&style=flat-square&color=green)
+[![Stars](https://img.shields.io/github/stars/TeamThea/blind-bash?label=Star&style=flat-square&color=red)](https://github.com/TeamThea/blind-bash/stargazers/)
+[![Forks](https://img.shields.io/github/forks/TeamThea/blind-bash?label=Fork&style=flat-square&color=orange)](https://github.com/TeamThea/blind-bash/network/)
+[![Issues](https://img.shields.io/github/issues/TeamThea/blind-bash?label=Issue&style=flat-square&color=blueviolet)](https://github.com/TeamThea/blind-bash/issues/)
+[![Tag](https://img.shields.io/github/tag/TeamThea/blind-bash?label=Tag&style=flat-square&color=green)](https://github.com/TeamThea/blind-bash/tags/)
+[![Watchers](https://img.shields.io/github/wathchers/TeamThea/blind-bash?label=Watch&style=flat-square&color=01ffd1)](https://github.com/TeamThea/blind-bash/watchers/)
 [![License](https://img.shields.io/github/license/TeamThea/blind-bash?label=License&logo=gnu&style=flat-square)](https://www.gnu.org/licenses/agpl-3.0.html)
 
 # Petunjuk Penginstallan
