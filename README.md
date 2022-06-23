@@ -29,14 +29,14 @@ Sebuah alat untuk mengenskripsi kode script bash 🛡️
 
 # Perintah
 Tools ini menggunakan baris perintah. Berikut ini adalah baris perintahnya!
-```shell
+```text
 Usage: blind-bash.sh [OPTION] [FILE 1] [FILE 2] etc...
 Encrypted files bash, so it can't be read.
 
 Option:
-    -h, --help            print help this tools
-    -v, --version         print version of this tools
-    -f, --file            starting encrypted files name
+    -f, --file           starting obfuscated files name
+    -h, --help           print help this tools
+    -v, --version        display version number
 
 Report bugs <team.thea@yahoo.com>
 ```
