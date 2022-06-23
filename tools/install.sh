@@ -161,7 +161,7 @@ setup_color () {
   FMT_RESET=$(printf '\033[0m')
 }
 
-create_blindbash () {
+setup_blindbash () {
   umask g-w,o-w
 
   echo "${FMT_BLUE}Cloning Blind Bash...${FMT_RESET}"
@@ -196,7 +196,7 @@ create_blindbash () {
   echo
 }
 
-setup_symboliclink () {
+create_symboliclink () {
   skip=50
 
   case $(printf 'X\n' | tail -n +1 2>/dev/null) in
