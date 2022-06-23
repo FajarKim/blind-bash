@@ -1,4 +1,4 @@
-Ko# Blind Bash Tools
+# Blind Bash Tools
 Tools untuk instalasi [Blind Bash](https://github.com/TeamThea/blind-bash) di Aplikasi Termux.
 
 # Penginstallan
