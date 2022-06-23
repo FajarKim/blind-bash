@@ -61,3 +61,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 # Report bugs
 [![Email](https://img.shields.io/badge/Yahoo%20Mail-grey?style=plastic&color=202a33&logo=yahoo&logoColor=blueviolet)](mailto:team.thea@yahoo.com)
+
+# Contributors over Times
+[![Contributors over time](https://contributor-graph-api.apiseven.com/contributors-svg?chart=contributorOverTime&repo=TeamThea/blind-bash)](https://www.apiseven.com/en/contributor-graph?chart=contributorOverTime&repo=TeamThea/blind-bash)
