@@ -164,7 +164,7 @@ setup_color () {
 setup_blindbash () {
   umask g-w,o-w
 
-  echo "${FMT_BLUE}Cloning Blind Bash...${FMT_RESET}"
+  echo "${FMT_BOLD}${FMT_BLUE}Cloning Blind Bash...${FMT_RESET}"
 
   command_exists git || {
     fmt_error "git is not installed"
@@ -242,7 +242,7 @@ create_symboliclink () {
     exit 1
   fi
 
-  echo
+  echo "${FMT_BOLD}${FMT_CYAN}Create symbolic link done!${FMT_RESET}"
 }
 
 print_success () {
@@ -253,6 +253,7 @@ print_success () {
   printf '%s%s/_.___/_/_/_/ /_/\\__,_/     /_.___/\\__,_/____/_/ /_/%s\n' $FMT_BOLD $FMT_BLUE $FMT_RESET
   printf '%s%s–––––––––––––––––––––––––––––––––––––––––––––––––––––%s\n' $FMT_BOLD $FMT_CYAN $FMT_RESET
   printf '%s\n' "${FMT_BOLD}${FMT_WHITE}Horray, Blind Bash is now installed!${FMT_RESET}"
+  printf '%s\n' "${FMT_BOLD}${FMT_WHITE}To keep up on the latest news and updates, follow us on GitHub: $(fmt_link Blind-Bash https://github.com/TeamThea/blind-bash)${FMT_RESET}"
   exit 0
 }
 
