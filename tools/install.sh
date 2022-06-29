@@ -4,7 +4,7 @@
 set -e
 
 # Default Settings
-REPO=${REPO:-TeamThea/blind-bash}
+REPO=${REPO:-FajarKim/blind-bash}
 PATH=${PATH:-`command -v bash | sed 's|/bash||'`}
 SHAREDIR=${SHAREDIR:-`command -v bash | sed 's|/bin/bash||'`/share}
 REMOTE=${REMOTE:-https://github.com/${REPO}.git}
@@ -253,7 +253,7 @@ print_success () {
   printf '%s%s/_.___/_/_/_/ /_/\\__,_/     /_.___/\\__,_/____/_/ /_/%s\n' $FMT_BOLD $FMT_BLUE $FMT_RESET
   printf '%s%s–––––––––––––––––––––––––––––––––––––––––––––––––––––%s\n' $FMT_BOLD $FMT_CYAN $FMT_RESET
   printf '%s\n' "${FMT_BOLD}${FMT_WHITE}Horray, Blind Bash is now installed!${FMT_RESET}"
-  printf '%s\n' "${FMT_BOLD}${FMT_WHITE}To keep up on the latest news and updates, follow us on GitHub: $(fmt_link Blind-Bash https://github.com/TeamThea/blind-bash)${FMT_RESET}"
+  printf '%s\n' "${FMT_BOLD}${FMT_WHITE}To keep up on the latest news and updates, follow us on GitHub: $(fmt_link Blind-Bash https://github.com/FajarKim/blind-bash)${FMT_RESET}"
   exit 0
 }
 
@@ -261,7 +261,7 @@ main () {
   setup_color
   case $HOME in
   */com.termux/*) ;;
-  *) fmt_error "this tools working in Termux App"; exit 1;;
+  *) fmt_error "this tools only support Termux App"; exit 1;;
   esac
   setup_blindbash
   create_symboliclink
