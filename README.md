@@ -63,7 +63,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 # Kontak
 Silahkan hubungi kontak saya dibawah ini jika ada pertanyaan atau masalah terkait alat ini.
 
-[![WhatsApp](https://img.shields.io/badge/WhatsApp-grey?style=plastic&color=202a33&logo=whatsapp)](https://wa.me/6285294315884?text=Hi) 
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-grey?style=plastic&color=202a33&logo=whatsapp)](https://wa.me/6285659850910?text=Hi) 
 [![Telegram](https://img.shields.io/badge/Telegram-grey?style=plastic&color=202a33&logo=telegram)](https://t.me/FajarThea) 
 [![Gmail](https://img.shields.io/badge/E%20Mail-grey?style=plastic&color=202a33&logo=gmail)](mailto:fajarrkim@gmail.com) 
 
