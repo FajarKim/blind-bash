@@ -7,7 +7,6 @@ Sebuah alat untuk mengenskripsi kode script bash 🛡️
 [![Stars](https://img.shields.io/github/stars/FajarKim/blind-bash?label=Star&style=flat-square&color=red)](https://github.com/FajarKim/blind-bash/stargazers/)
 [![Forks](https://img.shields.io/github/forks/FajarKim/blind-bash?label=Fork&style=flat-square&color=orange)](https://github.com/FajarKim/blind-bash/network/members/)
 [![Issues](https://img.shields.io/github/issues/FajarKim/blind-bash?label=Issue&style=flat-square&color=blueviolet)](https://github.com/FajarKim/blind-bash/issues/)
-[![Tag](https://img.shields.io/github/tag/FajarKim/blind-bash?label=Tag&style=flat-square&color=green)](https://github.com/FajarKim/blind-bash/tags/)
 [![Watchers](https://img.shields.io/github/watchers/FajarKim/blind-bash?label=Watch&style=flat-square&color=01ffd1)](https://github.com/FajarKim/blind-bash/watchers/)
 [![Pull-requests](https://img.shields.io/github/issues-pr/FajarKim/blind-bash?label=Pull%20requests&style=flat-square&color=0000ff)](https://github.com/FajarKim/blind-bash/pull/)
 [![License](https://img.shields.io/github/license/FajarKim/blind-bash?label=License&logo=gnu&style=flat-square)](https://www.gnu.org/licenses/agpl-3.0.html)
