@@ -1,33 +1,75 @@
-#!/data/data/com.termux/files/usr/bin/bash
-# This tools for installing blind-bash  in Termux App
+#!/bin/bash
+#
+# This script should be run via curl:
+#   bash -c "$(curl -fsSL https://raw.githubusercontent.com/FajarKim/bz2-shell/master/tools/install.sh)"
+# or via wget:
+#   bash -c "$(wget -qO- https://raw.githubusercontent.com/FajarKim/bz2-shell/master/tools/install.sh)"
+# or via fetch:
+#   bash -c "$(fetch -o - https://raw.githubusercontent.com/FajarKim/bz2-shell/master/tools/install.sh)"
+#
+# As an alternative, you can first download the install script and run it afterwards:
+#   wget https://raw.githubusercontent.com/FajarKim/bz2-shell/master/tools/install.sh
+#   bash install.sh
 #
 set -e
 
-# Default Settings
+# Make sure important variables exist if not already defined
+#
+# $USER is defined by login(1) which is not always executed (e.g. containers)
+# POSIX: https://pubs.opengroup.org/onlinepubs/009695299/utilities/id.html
+USER=${USER:-$(id -u -n)}
+
+# Test directory '/data/data/com.termux/files/usr'
+test -d "$PREFIX" && test -w "$PREFIX" && test -x "$PREFIX" || test -d /data/data/com.termux/files/usr && test -w /data/data/com.termux/files/usr && test -x /data/data/com.termux/files/usr || {
+  mkdir "/data/data/com.termux/files/usr" >/dev/null 2>&1
+}
+
+PREFIX=/data/data/com.termux/files/usr
+
+# Test directory '/data/data/com.termux/files/usr/shared'
+test -d "$PREFIX/shared" && test -w "$PREFIX/shared" && test -x "$PREFIX/shared" || {
+  mkdir "$PREFIX/shared" >/dev/null 2>&1
+}
+
+# Default settings
+BLIND="${BLIND:-$PREFIX/shared/blind-bash}"
 REPO=${REPO:-FajarKim/blind-bash}
-PATH=${PATH:-`command -v bash | sed 's|/bash||'`}
-SHAREDIR=${SHAREDIR:-`command -v bash | sed 's|/bin/bash||'`/share}
 REMOTE=${REMOTE:-https://github.com/${REPO}.git}
 BRANCH=${BRANCH:-master}
-BLINDBASH=${BLINDBASH:-$SHAREDIR/blind-bash}
 
-if [ ! -d "$PATH" ]; then
-  mkdir "$PATH"
-fi
-
-if [ ! -d "$SHAREDIR" ]; then
-  mkdir "$SHAREDIR"
-fi
-
-command_exists () {
+command_exists() {
   command -v "$@" >/dev/null 2>&1
 }
 
-# The [ -t 1 ] check only works when the function is not called from
+user_can_sudo() {
+  # Check if sudo is installed
+  command_exists sudo || return 1
+  # The following command has 3 parts:
+  #
+  # 1. Run `sudo` with `-v`. Does the following:
+  #    • with privilege: asks for a password immediately.
+  #    • without privilege: exits with error code 1 and prints the message:
+  #      Sorry, user <username> may not run sudo on <hostname>
+  #
+  # 2. Pass `-n` to `sudo` to tell it to not ask for a password. If the
+  #    password is not required, the command will finish with exit code 0.
+  #    If one is required, sudo will exit with error code 1 and print the
+  #    message:
+  #    sudo: a password is required
+  #
+  # 3. Check for the words "may not run sudo" in the output to really tell
+  #    whether the user has privileges or not. For that we have to make sure
+  #    to run `sudo` in the default locale (with `LANG=`) so that the message
+  #    stays consistent regardless of the user's locale.
+  #
+  ! LANG= sudo -n -v 2>&1 | grep -q "may not run sudo"
+}
+
+# The test -t 1 check only works when the function is not called from
 # a subshell (like in `$(...)` or `(...)`, so this hack redefines the
 # function at the top level to always return false when stdout is not
 # a tty.
-if [ -t 1 ]; then
+if test -t 1; then
   is_tty() {
     true
   }
@@ -55,10 +97,10 @@ fi
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-supports_hyperlinks () {
+supports_hyperlinks() {
   # $FORCE_HYPERLINK must be set and be non-zero (this acts as a logic bypass)
-  if [ -n "$FORCE_HYPERLINK" ]; then
-    [ "$FORCE_HYPERLINK" != 0 ]
+  if test -n "$FORCE_HYPERLINK"; then
+    test "$FORCE_HYPERLINK" != 0
     return $?
   fi
 
@@ -66,13 +108,13 @@ supports_hyperlinks () {
   is_tty || return 1
 
   # DomTerm terminal emulator (domterm.org)
-  if [ -n "$DOMTERM" ]; then
+  if test -n "$DOMTERM"; then
     return 0
   fi
 
   # VTE-based terminals above v0.50 (Gnome Terminal, Guake, ROXTerm, etc)
-  if [ -n "$VTE_VERSION" ]; then
-    [ $VTE_VERSION -ge 5000 ]
+  if test -n "$VTE_VERSION"; then
+    test $VTE_VERSION -ge 5000
     return $?
   fi
 
@@ -82,40 +124,43 @@ supports_hyperlinks () {
   esac
 
   # kitty supports hyperlinks
-  if [ "$TERM" = xterm-kitty ]; then
+  if test "$TERM" = xterm-kitty; then
     return 0
   fi
 
-  # Windows Terminal or Konsole also support hyperlinks
-  if [ -n "$WT_SESSION" ] || [ -n "$KONSOLE_VERSION" ]; then
+  # Windows Terminal also supports hyperlinks
+  if test -n "$WT_SESSION"; then
     return 0
   fi
+
+  # Konsole supports hyperlinks, but it's an opt-in setting that can't be detected
+  # if test -n "$KONSOLE_VERSION"; then
+  #   return 0
+  # fi
 
   return 1
 }
 
-# Adapted from code and information by Anton Kochkov (@XVilka)
-# Source: https://gist.github.com/XVilka/8346728
-supports_truecolor () {
-  case "$COLORTERM" in
-  truecolor|24bit) return 0 ;;
-  esac
+setup_color() {
+  # Only use colors if connected to a terminal
+  if ! is_tty; then
+    BOLD=""
+    RESET=""
+    return
+  fi
 
-  case "$TERM" in
-  iterm           |\
-  tmux-truecolor  |\
-  linux-truecolor |\
-  xterm-truecolor |\
-  screen-truecolor) return 0 ;;
-  esac
-
-  return 1
+  BOLD=$(printf '\033[1m')
+  RESET=$(printf '\033[m')
 }
 
-fmt_link () {
+fmt_info() {
+  printf >&2 '%s%s\n' "${0##*/}: " "$@"
+}
+
+fmt_link() {
   # $1: text, $2: url, $3: fallback mode
   if supports_hyperlinks; then
-    printf '\033]8;;%s\a%s\033]8;;\a\n' "$2" "$1"
+    printf '\033]8;;%s\033\\%s\033]8;;\033\\\n' "$2" "$1"
     return
   fi
 
@@ -125,147 +170,144 @@ fmt_link () {
   esac
 }
 
-fmt_underline () {
-  is_tty && printf '\033[4m%s\033[24m\n' "$*" || printf '%s\n' "$*"
+fmt_underline() {
+  is_tty && printf '\033[4m%s\033[24m\033[1m' "$*" || printf '%s\n' "$*"
 }
 
-# shellcheck disable=SC2016 # backtick in single-quote
-fmt_code () {
-  is_tty && printf '`\033[2m%s\033[22m`\n' "$*" || printf '`%s`\n' "$*"
-}
-
-fmt_error () {
-  printf '%sError: %s%s\n' "${FMT_BOLD}${FMT_RED}" "$*" "$FMT_RESET" >&2
-}
-
-setup_color () {
-  # Only use colors if connected to a terminal
-  if ! is_tty; then
-    FMT_RAINBOW=""
-    FMT_RED=""
-    FMT_GREEN=""
-    FMT_YELLOW=""
-    FMT_BLUE=""
-    FMT_CYAN=""
-    FMT_BOLD=""
-    FMT_RESET=""
-    return
-  fi
-
-  FMT_RED=$(printf '\033[31m')
-  FMT_GREEN=$(printf '\033[32m')
-  FMT_YELLOW=$(printf '\033[33m')
-  FMT_BLUE=$(printf '\033[34m')
-  FMT_CYAN=$(printf '\033[36m')
-  FMT_BOLD=$(printf '\033[1m')
-  FMT_RESET=$(printf '\033[0m')
-}
-
-setup_blindbash () {
+install_blindbash() {
+  # Prevent the cloned repository from having insecure permissions. Failing to do
+  # so causes compinit() calls to fail with "command not found: compdef" errors
+  # for users with insecure umasks (e.g., "002", allowing group writability). Note
+  # that this will be ignored under Cygwin by default, as Windows ACLs take
+  # precedence over umasks except for filesystems mounted with option "noacl".
   umask g-w,o-w
 
-  echo "${FMT_BOLD}${FMT_BLUE}Cloning Blind Bash...${FMT_RESET}"
+  echo "Cloning Blind Bash (blind-bash)..."
 
   command_exists git || {
-    fmt_error "git is not installed"
-    exit 1
+    fmt_info "git is not installed"
+    echo "Please now installed first."
+    exit 127
   }
 
+  ostype=$(uname)
+  if [ -z "${ostype%CYGWIN*}" ] && git --version | grep -Eq 'msysgit|windows'; then
+    fmt_info "Windows/MSYS Git is not supported on Cygwin"
+    fmt_info "Make sure the Cygwin git package is installed and is first on the \$PATH"
+    exit 1
+  fi
+
   # Manual clone with git config options to support git < v1.7.2
-  git init --quiet "$BLINDBASH" && cd "$BLINDBASH" \
+  git init --quiet "$BLIND" && cd "$BLIND" \
   && git config core.eol lf \
   && git config core.autocrlf false \
   && git config fsck.zeroPaddedFilemode ignore \
   && git config fetch.fsck.zeroPaddedFilemode ignore \
   && git config receive.fsck.zeroPaddedFilemode ignore \
-  && git config oh-my-zsh.remote origin \
-  && git config oh-my-zsh.branch "$BRANCH" \
+  && git config blind-bash.remote origin \
+  && git config blind-bash.branch "$BRANCH" \
   && git remote add origin "$REMOTE" \
   && git fetch --depth=1 origin \
   && git checkout -b "$BRANCH" "origin/$BRANCH" || {
-    [ ! -d "$BLINDBASH" ] || {
-      cd -
-      rm -rf "$BLINDBASH" 2>/dev/null
+    test ! -d "$BLIND" || {
+      cd - >/dev/null 2>&1
+      rm -rf "$BLIND" >/dev/null 2>&1 || rm -rf "$BLIND" >/dev/null 2>&1
     }
-    fmt_error "git clone of blind-bash repo failed"
+    fmt_info "git clone of bz2-shell repo failed"
     exit 1
   }
   # Exit installation directory
-  cd -
+  cd - >/dev/null 2>&1
 
-  echo
+  fmt_info "git clone of bz2-shell repo success"
 }
 
-create_symboliclink () {
-  skip=50
-
-  case $(printf 'X\n' | tail -n +1 2>/dev/null) in
-  X) tail_n=-n;;
-  *) tail_n=;;
-  esac
-
-  echo "${FMT_BOLD}${FMT_BLUE}Create symbolic link...${FMT_RESET}"
-
-  if [[ -r "$BLINDBASH"/blind-bash.sh && -r "$BLINDBASH"/tools/update.sh && -r "$BLINDBASH"/tools/uninstall.sh ]]; then
-    # Create symbolic link blind-bash.sh
-    if tail $tail_n +$skip <"${BLINDBASH}/blind-bash.sh" | ln -s "$BLINDBASH"/blind-bash.sh "$PATH"/blind-bash >/dev/null 2>&1; then
-      if [ ! -x "$PATH"/blind-bash ]; then
-        chmod +x "$PATH"/blind-bash
-      fi
-    else
-      fmt_error "failed create symbolic link"
+setup_blindbash() {
+  # Checking directory $PATH
+  test -d "$PATH" && test -w "$PATH" && test -x "$PATH" || {
+    PATH=/data/data/com.termux/files/usr/bin
+    test -d "$PATH" && test -w "$PATH" && test -x "$PATH" || {
+      fmt_info "no such directory \$PATH"
       exit 1
-    fi
+    }
+  }
 
-    # Create symbolic link update.sh
-    if tail $tail_n +$skip <"${BLINDBASH}/tools/update.sh" | ln -s "$BLINDBASH"/tools/update.sh "$PATH"/bb-update >/dev/null 2>&1; then
-      if [ ! -x "$PATH"/bb-update ]; then
-        chmod +x "$PATH"/bb-update
-      fi
-    else
-      fmt_error "failed create symbolic link"
+  # Checking file 'blind-bash.sh'
+  test -x "$BLIND/blind-bash.sh" || test -f "$BLIND/blind-bash.sh" || {
+    chmod -x "$BLIND/blind-bash.sh"  >/dev/null 2>&1 || {
+      fmt_info "cannot chmod file blind-bash.sh"
+      echo "No such file blind-bash.sh in directory $BLIND"
       exit 1
-    fi
+    }
+  }
 
-    # Create symbolic link uninstall.sh
-    if tail $tail_n +$skip <"${BLINDBASH}/tools/uninstall.sh" | ln -s "$BLINDBASH"/tools/uninstall.sh "$PATH"/bb-uninstall >/dev/null 2>&1; then
-      if [ ! -x "$PATH"/bb-uninstall ]; then
-        chmod +x "$PATH"/bb-uninstall
-      fi
-    else
-      fmt_error "failed create symbolic link"
+  # Checking file 'upgrade.sh'
+  test -x "$BLIND/tools/upgrade.sh" || test -f "$BLIND/tools/upgrade.sh" || {
+    chmod -x "$BLIND/tools/upgrade.sh"  >/dev/null 2>&1 || {
+      fmt_info "cannot chmod file upgrade.sh"
+      echo "No such file upgrade.sh in directory $BLIND/tools"
       exit 1
-    fi
+    }
+  }
 
-  else
-    fmt_error "Cannot files 'blind-bash.sh', 'update.sh', and/or 'uninstall.sh' in $BLINDBASH"
+  # Checking file 'uninstall.sh'
+  test -x "$BLIND/tools/uninstall.sh" || test -f "$BLIND/tools/uninstall.sh" || {
+    chmod -x "$BLIND/tools/uninstall.sh"  >/dev/null 2>&1 || {
+      fmt_info "cannot chmod file uninstall.sh"
+      echo "No such file uninstall.sh in directory $BLIND/tools"
+      exit 1
+    }
+  }
+
+
+  # Creating symbolic links
+  echo "Create symbolic link..."
+
+  ln -s "$BLIND/blind-bash.sh" "$PATH/bzsh" >/dev/null 2>&1 || {
+    fmt_info "cannot create symbolic link $BLIND/blind-bash.sh as $PATH/bzsh"
+    exit 1
+  }
+  ln -s "$BLIND/tools/upgrade.sh" "$PATH/bb-upgrade" >/dev/null 2>&1 || {
+    fmt_info "cannot create symbolic link $BLIND/tools/upgrade.sh as $PATH/bb-upgrade"
+    exit 1
+  }
+  ln -s "$BLIND/tools/uninstall.sh" "$PATH/bb-uninstall" >/dev/null 2>&1 || {
+    fmt_info "cannot create symbolic link $BLIND/tools/uninstall.sh as $PATH/bb-uninstall"
+    exit 1
+  }
+
+  fmt_info "create symbolic link success"
+}
+
+print_success() {
+  printf '%s\n' "${BOLD}      __    ___           __      __               __"
+  printf '%s\n' '     / /_  / (_)___  ____/ /     / /_  ____ ______/ /_'
+  printf '%s\n' '    / __ \/ / / __ \/ __  /_____/ __ \/ __ `/ ___/ __ \'
+  printf '%s\n' '   / /_/ / / / / / / /_/ /_____/ /_/ / /_/ (__  ) / / /'
+  printf '%s\n' '  /_.___/_/_/_/ /_/\__,_/     /_.___/\__,_/____/_/ /_/'
+  printf '%s\n' '                          has been installed! :)'
+  printf >&2 '%s\n' "Contact me in:"
+  printf >&2 '%s\n' "• Facebook : $(fmt_link 파자르김 https://bit.ly/facebook-fajarkim)"
+  printf >&2 '%s\n' "• Instagram: $(fmt_link @fajarkim_ https://instagram.com/fajarkim_)"
+  printf >&2 '%s\n' "• Twitter  : $(fmt_link @fajarkim_ https://twitter.com/fajarkim_)"
+  printf >&2 '%s\n' "• Telegram : $(fmt_link @FajarThea https://t.me/FajarThea)"
+  printf >&2 '%s\n' "• WhatsApp : $(fmt_link +6285659850910 https://bit.ly/whatsapp-fajarkim)"
+  printf >&2 '%s\n' "• E-mail   : fajarrkim@gmail.com${RESET}"
+}
+
+main() {
+  setup_color
+
+  # checking folder $BLIND
+  if test -d "$BLIND"; then
+    fmt_info "The folder '$BLIND' already exists."
+    echo "You'll need to remove it if you want to reinstall."
     exit 1
   fi
 
-  echo "${FMT_BOLD}${FMT_CYAN}Create symbolic link done!${FMT_RESET}"
-}
-
-print_success () {
-  printf '%s%s    __    ___           __      __               __%s\n' $FMT_BOLD $FMT_BLUE $FMT_RESET
-  printf '%s%s   / /_  / (_)___  ____/ /     / /_  ____ ______/ /_%s\n' $FMT_BOLD $FMT_BLUE $FMT_RESET
-  printf '%s%s  / __ \\/ / / __ \\/ __  /_____/ __ \\/ __ `/ ___/ __ \\%s\n' $FMT_BOLD $FMT_BLUE $FMT_RESET
-  printf '%s%s / /_/ / / / / / / /_/ /_____/ /_/ / /_/ (__  ) / / /%s\n' $FMT_BOLD $FMT_BLUE $FMT_RESET
-  printf '%s%s/_.___/_/_/_/ /_/\\__,_/     /_.___/\\__,_/____/_/ /_/%s\n' $FMT_BOLD $FMT_BLUE $FMT_RESET
-  printf '%s%s–––––––––––––––––––––––––––––––––––––––––––––––––––––%s\n' $FMT_BOLD $FMT_CYAN $FMT_RESET
-  printf '%s\n' "${FMT_BOLD}${FMT_WHITE}Horray, Blind Bash is now installed!${FMT_RESET}"
-  printf '%s\n' "${FMT_BOLD}${FMT_WHITE}To keep up on the latest news and updates, follow us on GitHub: $(fmt_link Blind-Bash https://github.com/FajarKim/blind-bash)${FMT_RESET}"
-  exit 0
-}
-
-main () {
-  setup_color
-  case $HOME in
-  */com.termux/*) ;;
-  *) fmt_error "this tools only support Termux App"; exit 1;;
-  esac
+  install_blindbash
   setup_blindbash
-  create_symboliclink
   print_success
 }
 
-main "$@"
+main $@

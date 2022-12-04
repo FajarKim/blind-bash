@@ -15,31 +15,25 @@ Sebuah alat untuk mengenskripsi kode script bash 🛡️
 # Petunjuk Penginstallan
 ### Linux
 * `$ apt update -y && apt upgrade -y`
-* `$ apt install git coreutils lzma -y`
+* `$ apt install git coreutils lzip -y`
 * `$ git clone https://github.com/FajarKim/blind-bash`
 * `$ cd blind-bash`
 * `$ bash blind-bash --help` atau `./blind-bash.sh --help` untuk info lebih lanjut.
 
 ### Termux
 * `$ pkg update -y && pkg upgrade -y`
-* `$ pkg install git coreutils lzma -y`
+* `$ pkg install git coreutils lzip -y`
 * `$ git clone https://github.com/FajarKim/blind-bash`
 * `$ cd blind-bash`
 * `$ bash blind-bash --help` atau `./blind-bash.sh --help` untuk info lebih lanjut.
 
-# Perintah
-Tools ini menggunakan baris perintah. Berikut ini adalah baris perintahnya!
-```text
-Usage: blind-bash.sh [OPTION] [FILE 1] [FILE 2] etc...
-Encrypted files bash, so it can't be read.
-
-Option:
-    -f, --file           starting obfuscated files name
-    -h, --help           print help this tools
-    -v, --version        display version number
-
-Report bugs <fajarrkim@gmail.com>
-```
+# Petunjuk Penggunaan
+Perintah yang didukung:
+| Perintah              | Keterangan                           |
+| :-------------------- | :----------------------------------- |
+| `-h` atau `--help`    | Menampilkan bantuan untuk alat ini   |
+| `-v` atau `--version` | Informasi versi keluaran terbaru     |
+| `-f` atau `--file`    | Mulai nama file yang akan di encrypt |
 
 # Copyright
 ```text
