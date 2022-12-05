@@ -65,5 +65,3 @@ Jangan lupa Follow juga akun dibawah ini ya!
 [![Facebook](https://img.shields.io/badge/Facebook-grey?style=plastic&color=202a33&logo=facebook)](https://www.facebook.com/profile.php?id=100071979099290) 
 [![Instagram](https://img.shields.io/badge/Instagram-grey?style=plastic&color=202a33&logo=instagram)](https://instagram.com/fajarkim_)
 [![Twitter](https://img.shields.io/badge/Twitter-grey?style=plastic&color=202a33&logo=twitter)](https://twitter.com/fajarkim_)
-
-<iframe src="https://github.com/sponsors/FajarKim/card" title="Sponsor FajarKim" height="225" width="600" style="border: 0;"></iframe>
