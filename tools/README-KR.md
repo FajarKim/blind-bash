@@ -12,72 +12,72 @@
 </div>
 
 # Blind Bash
-Sebuah alat yang digunakan untuk mengaburkan file skrip Bourne Again Shell (bash), sehingga tidak dapat dibaca 🛡️.
+Bourne Again Shell (bash) 스크립트 파일을 난독화하여 읽을 수 없게 만드는 데 사용되는 도구 🛡️.
 
 <details>
-<summary>Terjemahan</summary>
+<summary>번역</summary>
 
 - [🇬🇧 English (UK)](https://github.com/FajarKim/blind-bash/blob/master/README-EN.md)
 - [🇫🇷 France](https://github.com/FajarKim/blind-bash/blob/master/README-FR.md)
-- [🇰🇷 Korean](https://github.com/FajarKim/blind-bash/blob/master/README-KR.md)
+- [🇮🇩 Indonesian](https://github.com/FajarKim/blind-bash)
 </details>
 
-# Petunjuk Penginstallan
+# 설치 지침
 - `$ pkg update -y && pkg upgrade -y`
 - `$ pkg install coreutils xz-utils git -y`
 - `$ git clone https://github.com/FajarKim/blind-bash`
 - `$ cd blind-bash/tools`
-- `$ ./install.sh` atau `$ bash install.sh`
+- `$ ./install.sh` 또는 `$ bash install.sh`
 
-Sebagai alternatif, Anda dapat mengunduh skrip `install.sh` terlebih dahulu dan menjalankannya setelah menginstalnya:
+또는 먼저 `install.sh` 스크립트를 다운로드한 후 실행할 수 있습니다:
 ```text
 $ wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/install.sh
 $ bash install.sh
 ```
 
-# Petunjuk Penggunaan
-Perintah yang didukung:
+# 사용 지침
+지원되는 명령어:
 <table>
     <tr>
-        <td><div align="center"><b>Perintah</b></div></td>
-        <td><div align="center"><b>Keterangan</b></div></td>
+        <td><div align="center"><b>명령어</b></div></td>
+        <td><div align="center"><b>설명</b></div></td>
     </tr>
     <tr>
-        <td><div align="left"><code>-h</code> atau <code>--help</code></div></td>
-        <td><div align="left">Menampilkan bantuan untuk alat ini</div></td>
+        <td><div align="left"><code>-h</code> 또는 <code>--help</code></div></td>
+        <td><div align="left">이 도움말 표시</div></td>
     </tr>
     <tr>
-        <td><div align="left"><code>-v</code> atau <code>--version</code></div></td>
-        <td><div align="left">Informasi versi keluaran terbaru</div></td>
+        <td><div align="left"><code>-v</code> 또는 <code>--version</code></div></td>
+        <td><div align="left">출력 버전 정보</div></td>
     </tr>
     <tr>
-        <td><div align="left"><code>-f</code> atau <code>--file</code></div></td>
-        <td><div align="left">Mulai nama file yang diobfuscate</div></td>
+        <td><div align="left"><code>-f</code> 또는 <code>--file</code></div></td>
+        <td><div align="left">난독화된 파일 이름 시작</div></td>
     </tr>
 <table>
 
-Cara menjalankan alat ini:
-### Contoh 1
+이 도구를 실행하는 방법:
+### 예제 1
 ```text
 $ blind-bash.sh -f FILE
 ```
-atau
+또는
 ```text
 $ blind-bash.sh --file FILE
 ```
-### Contoh 2
+### 예제 2
 ```text
 $ blind-bash.sh -f FILE1 FILE2 FILE3...
 ```
-atau
+또는
 ```text
 $ blind-bash.sh --file FILE1 FILE2 FILE3...
 ```
-### Catatan
-Semakin banyak jumlah baris dalam sebuah file, semakin lama waktu yang dibutuhkan untuk mengenkripsi.
+### 노트
+파일의 라인 수가 많을수록 암호화하는 데 더 오래 걸립니다.
 
-# Kontak
-Silahkan hubungi kontak saya dibawah ini jika ada masalah atau pertanyaan mengenai alat ini. Jangan lupa untuk follow ya!
+# 연락처
+이 도구와 관련하여 문제나 궁금한 점이 있으면 아래 연락처로 문의해 주세요. 저를 팔로우하는 것을 잊지 마세요!
 <div align="center">
     <a href="https://www.facebook.com/fajarrkim"><img src="https://raw.githubusercontent.com/FajarKim/FajarKim/master/images/facebook_logo.png" alt="Facebook" width="35"></a>
     &ensp;
@@ -92,8 +92,8 @@ Silahkan hubungi kontak saya dibawah ini jika ada masalah atau pertanyaan mengen
     <a href="mailto:fajarrkim@gmail.com"><img src="https://raw.githubusercontent.com/FajarKim/FajarKim/master/images/gmail_logo.png" alt="Gmail" width="35"></a>
 </div>
 
-# Donasi
-Bagi orang baik yang mau berdonasi untuk perkembangan dan kemajuan akun ini, bisa klik tautan di bawah ini! Saya berterima kasih banyak kepada yang mau berdonasi 😊😊😊
+# 기부하기
+이 계정의 개발과 발전을 위해 기부하고 싶은 친절한 분들은 아래 링크를 클릭해 주세요! 기부해주시는 분들께 진심으로 감사드립니다 😊😊😊
 <div align="left">
     <a href="https://github.com/sponsors/FajarKim/"><img src="https://raw.githubusercontent.com/FajarKim/FajarKim/master/images/donate_github.png" alt="GitHub Sponsor" width="250"></a>
     <a href="https://paypal.me/agusbirawan/"><img src="https://raw.githubusercontent.com/FajarKim/FajarKim/master/images/donate_paypal.png" alt="PayPal Donate" width="250"></a>
