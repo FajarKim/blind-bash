@@ -1,27 +1,14 @@
 #!/data/data/com.termux/files/usr/bin/bash
 #
 # This script should be run via curl:
-# 1. In Termux:
-#   bash -c "$(curl -fsSL https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh)"
+#   bash -c "$(curl -fsSL https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/install.sh)"
 # or via wget:
-#   bash -c "$(wget -qO- https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh)"
+#   bash -c "$(wget -qO- https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/install.sh)"
 # or via fetch:
-#   bash -c "$(fetch -o - https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh)"
-#
-# 2. In Linux:
-#   bash -c "$(curl -fsSL https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh)"
-# or via wget:
-#   bash -c "$(wget -qO- https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh)"
-# or via fetch:
-#   bash -c "$(fetch -o - https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh)"
+#   bash -c "$(fetch -o - https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/install.sh)"
 #
 # As an alternative, you can first download the install script and run it afterwards:
-# 1. In Termux
-#   wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh
-#   bash install.sh
-#
-# 2. In Linux
-#   wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh
+#   wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/install.sh
 #   bash install.sh
 #
 set -e
@@ -254,19 +241,19 @@ setup_blind() {
   }
 
   # Checking file 'upgrade.sh'
-  test -x "$BLIND/tools/Termux/upgrade.sh" || test -f "$BLIND/tools/Termux/upgrade.sh" || {
-    chmod -x "$BLIND/tools/Termux/upgrade.sh"  >/dev/null 2>&1 || {
+  test -x "$BLIND/tools/upgrade.sh" || test -f "$BLIND/tools/upgrade.sh" || {
+    chmod -x "$BLIND/tools/upgrade.sh"  >/dev/null 2>&1 || {
       fmt_info "cannot chmod file upgrade.sh"
-      echo "No such file upgrade.sh in directory $BLIND/tools/Termux"
+      echo "No such file upgrade.sh in directory $BLIND/tools"
       exit 1
     }
   }
 
   # Checking file 'uninstall.sh'
-  test -x "$BLIND/tools/Termux/uninstall.sh" || test -f "$BLIND/tools/Termux/uninstall.sh" || {
-    chmod -x "$BLIND/tools/Termux/uninstall.sh"  >/dev/null 2>&1 || {
+  test -x "$BLIND/tools/uninstall.sh" || test -f "$BLIND/tools/uninstall.sh" || {
+    chmod -x "$BLIND/tools/uninstall.sh"  >/dev/null 2>&1 || {
       fmt_info "cannot chmod file uninstall.sh"
-      echo "No such file uninstall.sh in directory $BLIND/tools/Termux"
+      echo "No such file uninstall.sh in directory $BLIND/tools"
       exit 1
     }
   }
@@ -279,12 +266,12 @@ setup_blind() {
     fmt_info "cannot create symbolic link $BLIND/blind-bash.sh as $PATH/blind-bash"
     exit 1
   }
-  ln -s "$BLIND/tools/Termux/upgrade.sh" "$PATH/bb-upgrade" >/dev/null 2>&1 || {
-    fmt_info "cannot create symbolic link $BLIND/tools/Termux/upgrade.sh as $PATH/bb-upgrade"
+  ln -s "$BLIND/tools/upgrade.sh" "$PATH/bb-upgrade" >/dev/null 2>&1 || {
+    fmt_info "cannot create symbolic link $BLIND/tools/upgrade.sh as $PATH/bb-upgrade"
     exit 1
   }
-  ln -s "$BLIND/tools/Termux/uninstall.sh" "$PATH/bb-uninstall" >/dev/null 2>&1 || {
-    fmt_info "cannot create symbolic link $BLIND/tools/Termux/uninstall.sh as $PATH/bb-uninstall"
+  ln -s "$BLIND/tools/uninstall.sh" "$PATH/bb-uninstall" >/dev/null 2>&1 || {
+    fmt_info "cannot create symbolic link $BLIND/tools/uninstall.sh as $PATH/bb-uninstall"
     exit 1
   }
 
