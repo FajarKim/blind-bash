@@ -23,68 +23,15 @@ Bourne Again Shell (bash) 스크립트 파일을 난독화하여 읽을 수 없�
 </details>
 
 # 설치 지침
-## Termux
-### 방법 1
 - `$ pkg update -y && pkg upgrade -y`
 - `$ pkg install coreutils xz-utils git -y`
 - `$ git clone https://github.com/FajarKim/blind-bash`
-- `$ cd blind-bash/tools/Termux`
+- `$ cd blind-bash/tools`
 - `$ ./install.sh` 또는 `$ bash install.sh`
-### 방법 2
-<table>
-    <tr>
-        <td><div align="center"><b>메소드</b></div></td>
-        <td><div align="center"><b>명령어</b></div></td>
-    </tr>
-    <tr>
-        <td><div align="center"><b>curl</b></div></td>
-        <td><div align="left"><code>bash -c "$(curl -fsSL https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh)"</code></div></td>
-    </tr>
-    <tr>
-        <td><div align="center"><b>wget</b></div></td>
-        <td><div align="left"><code>bash -c "$(wget -qO- https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh)"</code></div></td>
-    </tr>
-    <tr>
-        <td><div align="center"><b>fetch</b></div></td>
-        <td><div align="left"><code>bash -c "$(fetch -o - https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh)"</code></div></td>
-    </tr>
-<table>
 
 또는 먼저 `install.sh` 스크립트를 다운로드한 후 실행할 수 있습니다:
 ```text
-$ wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh
-$ bash install.sh
-```
-## Linux
-### 방법 1
-- `$ apt update -y && apt upgrade -y`
-- `$ apt install coreutils xz-utils git -y`
-- `$ git clone https://github.com/FajarKim/blind-bash`
-- `$ cd blind-bash/tools/Linux`
-- `$ ./install.sh` 또는 `$ bash install.sh`
-### 방법 2
-<table>
-    <tr>
-        <td><div align="center"><b>메소드</b></div></td>
-        <td><div align="center"><b>명령어</b></div></td>
-    </tr>
-    <tr>
-        <td><div align="center"><b>curl</b></div></td>
-        <td><div align="left"><code>bash -c "$(curl -fsSL https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh)"</code></div></td>
-    </tr>
-    <tr>
-        <td><div align="center"><b>wget</b></div></td>
-        <td><div align="left"><code>bash -c "$(wget -qO- https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh)"</code></div></td>
-    </tr>
-    <tr>
-        <td><div align="center"><b>fetch</b></div></td>
-        <td><div align="left"><code>bash -c "$(fetch -o - https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh)"</code></div></td>
-    </tr>
-<table>
-
-또는 먼저 `install.sh` 스크립트를 다운로드한 후 실행할 수 있습니다:
-```text
-$ wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh
+$ wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/install.sh
 $ bash install.sh
 ```
 

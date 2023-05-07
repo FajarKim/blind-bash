@@ -23,68 +23,15 @@ Sebuah alat yang digunakan untuk mengaburkan file skrip Bourne Again Shell (bash
 </details>
 
 # Petunjuk Penginstallan
-## Termux
-### Cara 1
 - `$ pkg update -y && pkg upgrade -y`
 - `$ pkg install coreutils xz-utils git -y`
 - `$ git clone https://github.com/FajarKim/blind-bash`
-- `$ cd blind-bash/tools/Termux`
+- `$ cd blind-bash/tools`
 - `$ ./install.sh` atau `$ bash install.sh`
-### Cara 2
-<table>
-    <tr>
-        <td><div align="center"><b>Metode</b></div></td>
-        <td><div align="center"><b>Perintah</b></div></td>
-    </tr>
-    <tr>
-        <td><div align="center"><b>curl</b></div></td>
-        <td><div align="left"><code>bash -c "$(curl -fsSL https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh)"</code></div></td>
-    </tr>
-    <tr>
-        <td><div align="center"><b>wget</b></div></td>
-        <td><div align="left"><code>bash -c "$(wget -qO- https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh)"</code></div></td>
-    </tr>
-    <tr>
-        <td><div align="center"><b>fetch</b></div></td>
-        <td><div align="left"><code>bash -c "$(fetch -o - https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh)"</code></div></td>
-    </tr>
-<table>
 
 Sebagai alternatif, Anda dapat mengunduh skrip `install.sh` terlebih dahulu dan menjalankannya setelah menginstalnya:
 ```text
-$ wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh
-$ bash install.sh
-```
-## Linux
-### Cara 1
-- `$ apt update -y && apt upgrade -y`
-- `$ apt install coreutils xz-utils git -y`
-- `$ git clone https://github.com/FajarKim/blind-bash`
-- `$ cd blind-bash/tools/Linux`
-- `$ ./install.sh` atau `$ bash install.sh`
-### Cara 2
-<table>
-    <tr>
-        <td><div align="center"><b>Metode</b></div></td>
-        <td><div align="center"><b>Perintah</b></div></td>
-    </tr>
-    <tr>
-        <td><div align="center"><b>curl</b></div></td>
-        <td><div align="left"><code>bash -c "$(curl -fsSL https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh)"</code></div></td>
-    </tr>
-    <tr>
-        <td><div align="center"><b>wget</b></div></td>
-        <td><div align="left"><code>bash -c "$(wget -qO- https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh)"</code></div></td>
-    </tr>
-    <tr>
-        <td><div align="center"><b>fetch</b></div></td>
-        <td><div align="left"><code>bash -c "$(fetch -o - https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh)"</code></div></td>
-    </tr>
-<table>
-
-Sebagai alternatif, Anda dapat mengunduh skrip `install.sh` terlebih dahulu dan menjalankannya setelah menginstalnya:
-```text
-$ wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh
+$ wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/install.sh
 $ bash install.sh
 ```
 

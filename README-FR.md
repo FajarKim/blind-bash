@@ -23,68 +23,15 @@ Un outil utilisé pour obscurcir les fichiers de script du Bourne Again Shell (b
 </details>
 
 # Instructions d'Installation
-## Termux
-### Méthode 1
 - `$ pkg update -y && pkg upgrade -y`
 - `$ pkg install coreutils xz-utils git -y`
 - `$ git clone https://github.com/FajarKim/blind-bash`
-- `$ cd blind-bash/tools/Termux`
+- `$ cd blind-bash/tools`
 - `$ ./install.sh` ou `$ bash install.sh`
-### Méthode 2
-<table>
-    <tr>
-        <td><div align="center"><b>Méthode</b></div></td>
-        <td><div align="center"><b>Commande</b></div></td>
-    </tr>
-    <tr>
-        <td><div align="center"><b>curl</b></div></td>
-        <td><div align="left"><code>bash -c "$(curl -fsSL https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh)"</code></div></td>
-    </tr>
-    <tr>
-        <td><div align="center"><b>wget</b></div></td>
-        <td><div align="left"><code>bash -c "$(wget -qO- https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh)"</code></div></td>
-    </tr>
-    <tr>
-        <td><div align="center"><b>fetch</b></div></td>
-        <td><div align="left"><code>bash -c "$(fetch -o - https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh)"</code></div></td>
-    </tr>
-<table>
 
 Vous pouvez également télécharger le script `install.sh` et l'exécuter ensuite:
 ```text
-$ wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh
-$ bash install.sh
-```
-## Linux
-### Méthode 1
-- `$ apt update -y && apt upgrade -y`
-- `$ apt install coreutils xz-utils git -y`
-- `$ git clone https://github.com/FajarKim/blind-bash`
-- `$ cd blind-bash/tools/Linux`
-- `$ ./install.sh` ou `$ bash install.sh`
-### Méthode 2
-<table>
-    <tr>
-        <td><div align="center"><b>Méthode</b></div></td>
-        <td><div align="center"><b>Commande</b></div></td>
-    </tr>
-    <tr>
-        <td><div align="center"><b>curl</b></div></td>
-        <td><div align="left"><code>bash -c "$(curl -fsSL https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh)"</code></div></td>
-    </tr>
-    <tr>
-        <td><div align="center"><b>wget</b></div></td>
-        <td><div align="left"><code>bash -c "$(wget -qO- https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh)"</code></div></td>
-    </tr>
-    <tr>
-        <td><div align="center"><b>fetch</b></div></td>
-        <td><div align="left"><code>bash -c "$(fetch -o - https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh)"</code></div></td>
-    </tr>
-<table>
-
-Vous pouvez également télécharger le script `install.sh` et l'exécuter ensuite:
-```text
-$ wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh
+$ wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/install.sh
 $ bash install.sh
 ```
 
