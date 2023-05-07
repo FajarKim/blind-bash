@@ -1,20 +1,32 @@
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 #
 # This script should be run via curl:
-#   bash -c "$(curl -fsSL https://raw.githubusercontent.com/FajarKim/bz2-shell/master/tools/install.sh)"
+# 1. In Termux:
+#   bash -c "$(curl -fsSL https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh)"
 # or via wget:
-#   bash -c "$(wget -qO- https://raw.githubusercontent.com/FajarKim/bz2-shell/master/tools/install.sh)"
+#   bash -c "$(wget -qO- https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh)"
 # or via fetch:
-#   bash -c "$(fetch -o - https://raw.githubusercontent.com/FajarKim/bz2-shell/master/tools/install.sh)"
+#   bash -c "$(fetch -o - https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh)"
+#
+# 2. In Linux:
+#   bash -c "$(curl -fsSL https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh)"
+# or via wget:
+#   bash -c "$(wget -qO- https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh)"
+# or via fetch:
+#   bash -c "$(fetch -o - https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh)"
 #
 # As an alternative, you can first download the install script and run it afterwards:
-#   wget https://raw.githubusercontent.com/FajarKim/bz2-shell/master/tools/install.sh
+# 1. In Termux
+#   wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh
+#   bash install.sh
+#
+# 2. In Linux
+#   wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh
 #   bash install.sh
 #
 set -e
 
 # Make sure important variables exist if not already defined
-#
 # $USER is defined by login(1) which is not always executed (e.g. containers)
 # POSIX: https://pubs.opengroup.org/onlinepubs/009695299/utilities/id.html
 USER=${USER:-$(id -u -n)}
@@ -174,7 +186,7 @@ fmt_underline() {
   is_tty && printf '\033[4m%s\033[24m\033[1m' "$*" || printf '%s\n' "$*"
 }
 
-install_blindbash() {
+install_blind() {
   # Prevent the cloned repository from having insecure permissions. Failing to do
   # so causes compinit() calls to fail with "command not found: compdef" errors
   # for users with insecure umasks (e.g., "002", allowing group writability). Note
@@ -213,16 +225,16 @@ install_blindbash() {
       cd - >/dev/null 2>&1
       rm -rf "$BLIND" >/dev/null 2>&1 || rm -rf "$BLIND" >/dev/null 2>&1
     }
-    fmt_info "git clone of bz2-shell repo failed"
+    fmt_info "git clone of blind-bash repo failed"
     exit 1
   }
   # Exit installation directory
   cd - >/dev/null 2>&1
 
-  fmt_info "git clone of bz2-shell repo success"
+  fmt_info "git clone of blind-bash repo success"
 }
 
-setup_blindbash() {
+setup_blind() {
   # Checking directory $PATH
   test -d "$PATH" && test -w "$PATH" && test -x "$PATH" || {
     PATH=/data/data/com.termux/files/usr/bin
@@ -242,19 +254,19 @@ setup_blindbash() {
   }
 
   # Checking file 'upgrade.sh'
-  test -x "$BLIND/tools/upgrade.sh" || test -f "$BLIND/tools/upgrade.sh" || {
-    chmod -x "$BLIND/tools/upgrade.sh"  >/dev/null 2>&1 || {
+  test -x "$BLIND/tools/Termux/upgrade.sh" || test -f "$BLIND/tools/Termux/upgrade.sh" || {
+    chmod -x "$BLIND/tools/Termux/upgrade.sh"  >/dev/null 2>&1 || {
       fmt_info "cannot chmod file upgrade.sh"
-      echo "No such file upgrade.sh in directory $BLIND/tools"
+      echo "No such file upgrade.sh in directory $BLIND/tools/Termux"
       exit 1
     }
   }
 
   # Checking file 'uninstall.sh'
-  test -x "$BLIND/tools/uninstall.sh" || test -f "$BLIND/tools/uninstall.sh" || {
-    chmod -x "$BLIND/tools/uninstall.sh"  >/dev/null 2>&1 || {
+  test -x "$BLIND/tools/Termux/uninstall.sh" || test -f "$BLIND/tools/Termux/uninstall.sh" || {
+    chmod -x "$BLIND/tools/Termux/uninstall.sh"  >/dev/null 2>&1 || {
       fmt_info "cannot chmod file uninstall.sh"
-      echo "No such file uninstall.sh in directory $BLIND/tools"
+      echo "No such file uninstall.sh in directory $BLIND/tools/Termux"
       exit 1
     }
   }
@@ -263,16 +275,16 @@ setup_blindbash() {
   # Creating symbolic links
   echo "Create symbolic link..."
 
-  ln -s "$BLIND/blind-bash.sh" "$PATH/bzsh" >/dev/null 2>&1 || {
-    fmt_info "cannot create symbolic link $BLIND/blind-bash.sh as $PATH/bzsh"
+  ln -s "$BLIND/blind-bash.sh" "$PATH/blind-bash" >/dev/null 2>&1 || {
+    fmt_info "cannot create symbolic link $BLIND/blind-bash.sh as $PATH/blind-bash"
     exit 1
   }
-  ln -s "$BLIND/tools/upgrade.sh" "$PATH/bb-upgrade" >/dev/null 2>&1 || {
-    fmt_info "cannot create symbolic link $BLIND/tools/upgrade.sh as $PATH/bb-upgrade"
+  ln -s "$BLIND/tools/Termux/upgrade.sh" "$PATH/bb-upgrade" >/dev/null 2>&1 || {
+    fmt_info "cannot create symbolic link $BLIND/tools/Termux/upgrade.sh as $PATH/bb-upgrade"
     exit 1
   }
-  ln -s "$BLIND/tools/uninstall.sh" "$PATH/bb-uninstall" >/dev/null 2>&1 || {
-    fmt_info "cannot create symbolic link $BLIND/tools/uninstall.sh as $PATH/bb-uninstall"
+  ln -s "$BLIND/tools/Termux/uninstall.sh" "$PATH/bb-uninstall" >/dev/null 2>&1 || {
+    fmt_info "cannot create symbolic link $BLIND/tools/Termux/uninstall.sh as $PATH/bb-uninstall"
     exit 1
   }
 
@@ -280,18 +292,20 @@ setup_blindbash() {
 }
 
 print_success() {
-  printf '%s\n' "${BOLD}      __    ___           __      __               __"
-  printf '%s\n' '     / /_  / (_)___  ____/ /     / /_  ____ ______/ /_'
-  printf '%s\n' '    / __ \/ / / __ \/ __  /_____/ __ \/ __ `/ ___/ __ \'
-  printf '%s\n' '   / /_/ / / / / / / /_/ /_____/ /_/ / /_/ (__  ) / / /'
-  printf '%s\n' '  /_.___/_/_/_/ /_/\__,_/     /_.___/\__,_/____/_/ /_/'
-  printf '%s\n' '                          has been installed! :)'
+  printf '%s\n' "${BOLD}    __    ___           __      __               __"
+  printf '%s\n' '   / /_  / (_)___  ____/ /     / /_  ____ ______/ /_'
+  printf '%s\n' '  / __ \/ / / __ \/ __  /_____/ __ \/ __ `/ ___/ __ \'
+  printf '%s\n' ' / /_/ / / / / / / /_/ /_____/ /_/ / /_/ (__  ) / / /'
+  printf '%s\n' '/_.___/_/_/_/ /_/\__,_/     /_.___/\__,_/____/_/ /_/'
+  printf '%s\n' '                       Has been installed!! :)'
   printf >&2 '%s\n' "Contact me in:"
-  printf >&2 '%s\n' "• Facebook : $(fmt_link 파자르김 https://bit.ly/facebook-fajarkim)"
+  printf >&2 '%s\n' "• Facebook : $(fmt_link 파자르김 https://facebook.com/fajarrkim)"
   printf >&2 '%s\n' "• Instagram: $(fmt_link @fajarkim_ https://instagram.com/fajarkim_)"
+  printf >&2 '%s\n' "             $(fmt_link @fajarhacker_ https://instagram.com/fajarhacker_)"
   printf >&2 '%s\n' "• Twitter  : $(fmt_link @fajarkim_ https://twitter.com/fajarkim_)"
   printf >&2 '%s\n' "• Telegram : $(fmt_link @FajarThea https://t.me/FajarThea)"
-  printf >&2 '%s\n' "• WhatsApp : $(fmt_link +6285659850910 https://bit.ly/whatsapp-fajarkim)"
+  printf >&2 '%s\n' "• WhatsApp : $(fmt_link +6285659850910 https://wa.me/6285659850910)"
+  printf >&2 '%s\n' "• YouTube  : $(fmt_link 'Fajar Hacker' https://youtube.com/@FajarHacker)"
   printf >&2 '%s\n' "• E-mail   : fajarrkim@gmail.com${RESET}"
 }
 
@@ -305,8 +319,8 @@ main() {
     exit 1
   fi
 
-  install_blindbash
-  setup_blindbash
+  install_blind
+  setup_blind
   print_success
 }
 
