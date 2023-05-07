@@ -12,29 +12,29 @@
 </div>
 
 # Blind Bash
-Sebuah alat yang digunakan untuk mengaburkan file skrip Bourne Again Shell (bash), sehingga tidak dapat dibaca 🛡️.
+Un outil utilisé pour obscurcir les fichiers de script du Bourne Again Shell (bash), les rendant illisibles 🛡️.
 
 <details>
-<summary>Terjemahan</summary>
+<summary>Traduction</summary>
 
-- [🇬🇧 English (UK)](https://github.com/FajarKim/blind-bash/blob/master/README-EN.md)
-- [🇫🇷 France](https://github.com/FajarKim/blind-bash/blob/master/README-FR.md)
+- [🇬🇧 English (UK)](https://github.com/FajarKim/blind-bash/blob/master/README-KR.md)
+- [🇮🇩 Indonesian](https://github.com/FajarKim/blind-bash)
 - [🇰🇷 Korean](https://github.com/FajarKim/blind-bash/blob/master/README-KR.md)
 </details>
 
-# Petunjuk Penginstallan
+# Instructions d'Installation
 ## Termux
-### Cara 1
+### Méthode 1
 - `$ pkg update -y && pkg upgrade -y`
 - `$ pkg install coreutils xz-utils git -y`
 - `$ git clone https://github.com/FajarKim/blind-bash`
 - `$ cd blind-bash/tools/Termux`
-- `$ ./install.sh` atau `$ bash install.sh`
-### Cara 2
+- `$ ./install.sh` ou `$ bash install.sh`
+### Méthode 2
 <table>
     <tr>
-        <td><div align="center"><b>Metode</b></div></td>
-        <td><div align="center"><b>Perintah</b></div></td>
+        <td><div align="center"><b>Méthode</b></div></td>
+        <td><div align="center"><b>Commande</b></div></td>
     </tr>
     <tr>
         <td><div align="center"><b>curl</b></div></td>
@@ -50,23 +50,23 @@ Sebuah alat yang digunakan untuk mengaburkan file skrip Bourne Again Shell (bash
     </tr>
 <table>
 
-Sebagai alternatif, Anda dapat mengunduh skrip `install.sh` terlebih dahulu dan menjalankannya setelah menginstalnya:
+Vous pouvez également télécharger le script `install.sh` et l'exécuter ensuite:
 ```text
 $ wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Termux/install.sh
 $ bash install.sh
 ```
 ## Linux
-### Cara 1
+### Méthode 1
 - `$ apt update -y && apt upgrade -y`
 - `$ apt install coreutils xz-utils git -y`
 - `$ git clone https://github.com/FajarKim/blind-bash`
 - `$ cd blind-bash/tools/Linux`
-- `$ ./install.sh` atau `$ bash install.sh`
-### Cara 2
+- `$ ./install.sh` ou `$ bash install.sh`
+### Méthode 2
 <table>
     <tr>
-        <td><div align="center"><b>Metode</b></div></td>
-        <td><div align="center"><b>Perintah</b></div></td>
+        <td><div align="center"><b>Méthode</b></div></td>
+        <td><div align="center"><b>Commande</b></div></td>
     </tr>
     <tr>
         <td><div align="center"><b>curl</b></div></td>
@@ -82,55 +82,55 @@ $ bash install.sh
     </tr>
 <table>
 
-Sebagai alternatif, Anda dapat mengunduh skrip `install.sh` terlebih dahulu dan menjalankannya setelah menginstalnya:
+Vous pouvez également télécharger le script `install.sh` et l'exécuter ensuite:
 ```text
 $ wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/Linux/install.sh
 $ bash install.sh
 ```
 
-# Petunjuk Penggunaan
-Perintah yang didukung:
+# Instructions d'Utilisation
+Commande supportées:
 <table>
     <tr>
-        <td><div align="center"><b>Perintah</b></div></td>
-        <td><div align="center"><b>Keterangan</b></div></td>
+        <td><div align="center"><b>Commande</b></div></td>
+        <td><div align="center"><b>Description</b></div></td>
     </tr>
     <tr>
-        <td><div align="left"><code>-h</code> atau <code>--help</code></div></td>
-        <td><div align="left">Menampilkan bantuan untuk alat ini</div></td>
+        <td><div align="left"><code>-h</code> ou <code>--help</code></div></td>
+        <td><div align="left">Afficher cette aide</div></td>
     </tr>
     <tr>
-        <td><div align="left"><code>-v</code> atau <code>--version</code></div></td>
-        <td><div align="left">Informasi versi keluaran terbaru</div></td>
+        <td><div align="left"><code>-v</code> ou <code>--version</code></div></td>
+        <td><div align="left">Informations sur la version de sortie</div></td>
     </tr>
     <tr>
-        <td><div align="left"><code>-f</code> atau <code>--file</code></div></td>
-        <td><div align="left">Mulai nama file yang diobfuscate</div></td>
+        <td><div align="left"><code>-f</code> ou <code>--file</code></div></td>
+        <td><div align="left">Démarrage du nom des fichiers obfusqués</div></td>
     </tr>
 <table>
 
-Cara menjalankan alat ini:
-### Contoh 1
+Comment utiliser cet outil:
+### Exemple 1
 ```text
 $ blind-bash.sh -f FILE
 ```
-atau
+ou
 ```text
 $ blind-bash.sh --file FILE
 ```
-### Contoh 2
+### Exemple 2
 ```text
 $ blind-bash.sh -f FILE1 FILE2 FILE3...
 ```
-atau
+ou
 ```text
 $ blind-bash.sh --file FILE1 FILE2 FILE3...
 ```
-### Catatan
-Semakin banyak jumlah baris dalam sebuah file, semakin lama waktu yang dibutuhkan untuk mengenkripsi.
+### Remarques
+Plus il y a de lignes dans un fichier, plus il faudra de temps pour le crypter.
 
-# Kontak
-Silahkan hubungi kontak saya dibawah ini jika ada masalah atau pertanyaan mengenai alat ini. Jangan lupa untuk follow ya!
+# Contacter
+N'hésitez pas à me contacter ci-dessous si vous avez des problèmes ou des questions concernant cet outil. N'oubliez pas de me suivre!
 <div align="center">
     <a href="https://www.facebook.com/fajarrkim"><img src="https://raw.githubusercontent.com/FajarKim/FajarKim/master/images/facebook_logo.png" alt="Facebook" width="35"></a>
     &ensp;
@@ -145,8 +145,8 @@ Silahkan hubungi kontak saya dibawah ini jika ada masalah atau pertanyaan mengen
     <a href="mailto:fajarrkim@gmail.com"><img src="https://raw.githubusercontent.com/FajarKim/FajarKim/master/images/gmail_logo.png" alt="Gmail" width="35"></a>
 </div>
 
-# Donasi
-Bagi orang baik yang mau berdonasi untuk perkembangan dan kemajuan akun ini, bisa klik tautan di bawah ini! Saya berterima kasih banyak kepada yang mau berdonasi 😊😊😊
+# Faire un Don
+Pour les personnes aimables qui veulent faire un don pour le développement et la progression de ce compte, veuillez cliquer sur le lien ci-dessous! Je vous remercie beaucoup pour ceux qui veulent faire un don 😊😊😊
 <div align="left">
     <a href="https://github.com/sponsors/FajarKim/"><img src="https://raw.githubusercontent.com/FajarKim/FajarKim/master/images/donate_github.png" alt="GitHub Sponsor" width="250"></a>
     <a href="https://paypal.me/agusbirawan/"><img src="https://raw.githubusercontent.com/FajarKim/FajarKim/master/images/donate_paypal.png" alt="PayPal Donate" width="250"></a>
