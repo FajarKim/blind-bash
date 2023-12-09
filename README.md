@@ -1,12 +1,14 @@
 <div align="center">
   <a href="https://github.com/FajarKim/blind-bash"><img src="https://raw.githubusercontent.com/FajarKim/blind-bash/master/images/logo.png" alt="Blind Bash Logo" width="100%"/></a>
   <h2>Blind Bash</h2>
-  <p>Tools for obfuscated bash script 🛡️</p>
-  <p><a href="/docs/README-ID.md">Indonesia</a> · <a href="/docs/README-KR.md">한국어</a> · <a href="/docs/README-FR.md">Français</a></p>
-  <a href="https://github.com/FajarKim/blind-bash"><img src="https://img.shields.io/github/languages/code-size/FajarKim/blind-bash?label=Blind%20Bash&style=for-the-badge&logo=github&labelColor=302d41&color=f2cdcd&logoColor=d9e0ee" alt="Blind Bash"></a>
-  <a href="https://github.com/FajarKim/blind-bash/stargazers/"><img src="https://custom-icon-badges.demolab.com/github/stars/FajarKim/blind-bash?label=Stars&logo=star&labelColor=302d41&color=8bd5ca&logoColor=d9e0ee&style=for-the-badge" alt="Stars"></a>
+  <p>Tools for obfuscated bash script </p>
+  <p><a href="/docs/README-ID.md">Indonesia</a> � <a href="/docs/README-KR.md"></a> � <a href="/docs/README-FR.md">Fran�ais</a></p>
+  <a href="https://github.com/FajarKim/blind-bash/releases"><img src="https://custom-icon-badges.demolab.com/github/v/tag/FajarKim/blind-bash?label=Version&labelColor=302d41&color=f2cdcd&logoColor=d9e0ee&logo=tag&style=for-the-badge" alt="Version"/></a>
+  <a href="https://github.com/FajarKim/blind-bash/stargazers/"><img src="https://custom-icon-badges.demolab.com/github/stars/FajarKim/blind-bash?label=Stars&logo=star&labelColor=302d41&color=c9cbff&logoColor=d9e0ee&style=for-the-badge" alt="Stars"></a>
+  <a href="https://github.com/FajarKim/blind-bash/network/members/"><img src="https://custom-icon-badges.demolab.com/github/forks/FajarKim/blind-bash?label=Forks&logo=fork&labelColor=302d41&color=b5e8e0&logoColor=d9e0ee&style=for-the-badge" alt="Forks"></a>
   <a href="https://github.com/FajarKim/blind-bash/issues"><img src="https://custom-icon-badges.demolab.com/github/issues/FajarKim/blind-bash?label=Issues&labelColor=302d41&color=f5a97f&logoColor=d9e0ee&logo=issue&style=for-the-badge" alt="Issues"/></a>
   <a href="https://github.com/FajarKim/blind-bash/pull"><img src="https://custom-icon-badges.demolab.com/github/issues-pr/FajarKim/blind-bash?&label=Pull%20Requests&labelColor=302d41&color=ddb6f2&logoColor=d9e0ee&logo=git-pull-request&style=for-the-badge" alt="PRs"/></a>
+  <a href="https://github.com/FajarKim/bz2-shell/archive/refs/heads/master.zip"><img src="https://custom-icon-badges.demolab.com/github/languages/code-size/FajarKim/blind-bash?label=Download&logo=zip&labelColor=302d41&color=b7bdf8&logoColor=d9e0ee&style=for-the-badge" alt="Download .zip"></a>
 </div>
 
 # Description
@@ -168,14 +170,14 @@ Love the project? Please consider donating to help it improve!
 
 Are you considering supporting the project by donating to me? Please DO NOT!!
 
-Please visit [this link](https://fajarkim.github.io/donate) and make a small donation to help the people in need. A small donation goes a long way. ❤️
+Please visit [this link](https://fajarkim.github.io/donate) and make a small donation to help the people in need. A small donation goes a long way. 
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/FajarKim/FajarKim/master/images/line.svg?sanitize=true"/>
 </div>
 
-<p align="center">Made with ❤️ and Shell</p>
-<p align="center">Copyright © 2022-present Rangga Fajar Oktariansyah</p>
+<p align="center">Made with  and Shell</p>
+<p align="center">Copyright � 2022-present Rangga Fajar Oktariansyah</p>
 <div align="center">
   <a href="LICENSE"><img src="https://custom-icon-badges.demolab.com/github/license/FajarKim/blind-bash?label=License&labelColor=302d41&color=91d7e3&logo=law&logoColor=d9e0ee&style=for-the-badge" alt="License"></a>
 </div>
