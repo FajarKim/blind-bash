@@ -1,23 +1,49 @@
 # Blind Bash Tools
-Tools untuk instalasi [Blind Bash](https://github.com/FajarKim/blind-bash) di Aplikasi Termux.
+Tools for installing [Blind Bash](https://github.com/FajarKim/blind-bash) on the Termux application.
 
-# Penginstallan
-Cukup jalankan file `install.sh`, atau gunakan perintah:
+# Installation
+Simply run the `install.sh` file, or use the following commands:
+<table>
+  <tr>
+    <td><div align="center"><b>Method</b></div></td>
+    <td><div align="center"><b>Command</b></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><b>curl</b></div></td>
+    <td>
+      <div align="left">
+        <pre class="language-shell"><code>bash -c "$(curl -fsSL https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/install.sh)"</code></pre>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td><div align="center"><b>wget</b></div></td>
+    <td>
+      <div align="left">
+        <pre class="language-shell"><code>bash -c "$(wget -qO- https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/install.sh)"</code></pre>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td><div align="center"><b>fetch</b></div></td>
+    <td>
+      <div align="left">
+        <pre class="language-shell"><code>bash -c "$(fetch -o - https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/install.sh)"</code></pre>
+      </div>
+    </td>
+  </tr>
+</table>
 
-| Metode    | Perintah                                                                                                      |
-| :-------- | :------------------------------------------------------------------------------------------------------------ |
-| **curl**  | `bash -c "$(curl -fsSL https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/install.sh)"` |
-| **wget**  | `bash -c "$(wget -qO- https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/install.sh)"`  |
-| **fetch** | `bash -c "$(fetch -o - https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/install.sh)"` |
+As an alternative, you can first download the `install.sh` script and run it afterwards:
+- ```shell
+  wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/install.sh
+  ```
+- ```shell
+  bash install.sh
+  ```
 
-Sebagai alternatif, Anda dapat mengunduh skrip `install.sh` terlebih dahulu dan menjalankannya setelah menginstalnya:
-```text
-$ wget https://raw.githubusercontent.com/FajarKim/blind-bash/master/tools/install.sh
-$ bash install.sh
-```
-
-# Perintah
-Perintah yang didukung:
-* `blind-bash`: untuk mulai mengenskripsi file Bash.
-* `bb-upgrade`: untuk mulai mengupdate/mengupgrade tools [Blind Bash](https://github.com/FajarKim/blind-bash).
-* `bb-uninstall`: untuk menguninstall tools [Blind Bash](https://github.com/FajarKim/blind-bash) apabila telah diinstall di Aplikasi Termux.
+# Commands
+Supported commands after the tool is successfully installed:
+* `blind-bash`: to start encrypting Bash files.
+* `bb-upgrade`: to begin updating/upgrading [Blind Bash](https://github.com/FajarKim/blind-bash) tools.
+* `bb-uninstall`: to uninstall [Blind Bash](https://github.com/FajarKim/blind-bash) tools if installed on the Termux application.
