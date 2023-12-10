@@ -266,12 +266,12 @@ setup_blind() {
     fmt_info "cannot create symbolic link $BLIND/blind-bash.sh as $PATH/blind-bash"
     exit 1
   }
-  ln -s "$BLIND/tools/upgrade.sh" "$PATH/bb-upgrade" >/dev/null 2>&1 || {
-    fmt_info "cannot create symbolic link $BLIND/tools/upgrade.sh as $PATH/bb-upgrade"
+  ln -s "$BLIND/tools/upgrade.sh" "$PATH/.bb-upgrade" >/dev/null 2>&1 || {
+    fmt_info "cannot create symbolic link $BLIND/tools/upgrade.sh as $PATH/.bb-upgrade"
     exit 1
   }
-  ln -s "$BLIND/tools/uninstall.sh" "$PATH/bb-uninstall" >/dev/null 2>&1 || {
-    fmt_info "cannot create symbolic link $BLIND/tools/uninstall.sh as $PATH/bb-uninstall"
+  ln -s "$BLIND/tools/uninstall.sh" "$PATH/.bb-uninstall" >/dev/null 2>&1 || {
+    fmt_info "cannot create symbolic link $BLIND/tools/uninstall.sh as $PATH/.bb-uninstall"
     exit 1
   }
 
