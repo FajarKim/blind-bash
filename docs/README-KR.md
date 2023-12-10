@@ -118,7 +118,7 @@ Blind Bash는 Bash 스크립트를 난독화하는 다재다능한 도구로, �
   </tr>
   <tr>
     <td><div align="left"><code>-f</code> 또는 <code>--file</code></div></td>
-    <td><div align="left">Starting obfuscated files name.</div></td>
+    <td><div align="left">난독화된 파일 이름을 시작합니다.</div></td>
   </tr>
   <tr>
     <td><div align="left"><code>--upgrade</code></div></td>
