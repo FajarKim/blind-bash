@@ -45,5 +45,5 @@ As an alternative, you can first download the `install.sh` script and run it aft
 # Commands
 Supported commands after the tool is successfully installed:
 * `blind-bash`: to start encrypting Bash files.
-* `bb-upgrade`: to begin updating/upgrading [Blind Bash](https://github.com/FajarKim/blind-bash) tools.
-* `bb-uninstall`: to uninstall [Blind Bash](https://github.com/FajarKim/blind-bash) tools if installed on the Termux application.
+* `blind-bash --upgrade`: to begin updating/upgrading [Blind Bash](https://github.com/FajarKim/blind-bash) tools.
+* `blind-bash --uninstall`: to uninstall [Blind Bash](https://github.com/FajarKim/blind-bash) tools if installed on the Termux application.
