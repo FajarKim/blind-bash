@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Question
+    url: https://github.com/FajarKim/blind-bash/discussions
+    about: Please ask and answer questions here.
+  - name: Email
+    url: mailto:fajarrkim@gmail.com
+    about: Report bugs, requests feature, or ask question to my email
