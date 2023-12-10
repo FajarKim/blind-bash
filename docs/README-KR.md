@@ -186,7 +186,7 @@ Blind Bash은 다음 권한을 부여하는 AGPL-3.0 라이선스에 따라 출�
 
 [이 링크](https://fajarkim.github.io/donate)를 방문하여 도움이 필요한 사람들을 돕기 위해 소액을 기부해 주세요. 작은 기부가 큰 도움이 됩니다. ❤️
 
-## Other Similar Tools
+## 기타 유사한 도구
 #### BZip2 Shell Exec
 [![BZip2 Shell Exec](https://github-readme-stats.vercel.app/api/pin?username=FajarKim&repo=bz2-shell&show_owner=true&title_color=8bd5ca&text_color=cad3f5&icon_color=c6a0f6&bg_color=24273a)](https://github.com/FajarKim/bz2-shell)
 #### LZip Shell Exec
