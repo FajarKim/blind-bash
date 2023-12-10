@@ -186,6 +186,12 @@ Are you considering supporting the project by donating to me? Please DO NOT!!
 
 Please visit [this link](https://fajarkim.github.io/donate) and make a small donation to help the people in need. A small donation goes a long way. ❤️
 
+## Other Similar Tools
+#### BZip2 Shell Exec
+[![BZip2 Shell Exec](https://github-readme-stats.vercel.app/api/pin?username=FajarKim&repo=bz2-shell&show_owner=true&title_color=8bd5ca&text_color=cad3f5&icon_color=c6a0f6&bg_color=24273a)](https://github.com/FajarKim/bz2-shell)
+#### LZip Shell Exec
+[![LZip Shell Exec](https://github-readme-stats.vercel.app/api/pin?username=FajarKim&repo=lzip-shell&show_owner=true&title_color=8bd5ca&text_color=cad3f5&icon_color=c6a0f6&bg_color=24273a)](https://github.com/FajarKim/lzip-shell)
+
 <div align="center">
   <img src="https://raw.githubusercontent.com/FajarKim/FajarKim/master/images/line.svg?sanitize=true"/>
 </div>
