@@ -56,6 +56,11 @@ If you want to install it to the `$PATH` folder, just run the `install.sh` file 
   cd tools && bash install.sh
   ```
 
+If installed successfully, run the command:
+- ```shell
+  blind-bash --help
+  ```
+
 You can also use this method:
 <table>
   <tr>
