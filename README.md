@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://github.com/FajarKim/blind-bash"><img src="https://raw.githubusercontent.com/FajarKim/blind-bash/master/images/logo.png" alt="Blind Bash Logo" width="100%"/></a>
+  <img src="https://raw.githubusercontent.com/FajarKim/blind-bash/master/images/logo.png" alt="Blind Bash Logo" width="300"/>
   <h2>Blind Bash</h2>
   <p>Tools for obfuscated bash script 🛡️</p>
   <p><a href="/docs/README-ID.md">Indonesia</a> · <a href="/docs/README-KR.md">한국어</a> · <a href="/docs/README-FR.md">Français</a></p>
