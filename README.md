@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/FajarKim/blind-bash/master/images/logo.png" alt="Blind Bash Logo" width="300"/>
   <h2>Blind Bash</h2>
   <p>Tools for obfuscated bash script 🛡️</p>
-    <p><a href="https://github.com/FajarKim/blind-bash/issues/new?assignees=&labels=bug&projects=&template=bug_report.yml">Report Bug</a> · <a href="https://github.com/FajarKim/blind-bash/issues/new?assignees=&labels=enhancement&projects=&template=feature_request.yml">Request Feature</a> · <a href="https://github.com/FajarKim/blind-bash/discussions/new?category=q-a">Ask Question</a></p>
+  <p><a href="https://github.com/FajarKim/blind-bash/issues/new?assignees=&labels=bug&projects=&template=bug_report.yml">Report Bug</a> · <a href="https://github.com/FajarKim/blind-bash/issues/new?assignees=&labels=enhancement&projects=&template=feature_request.yml">Request Feature</a> · <a href="https://github.com/FajarKim/blind-bash/discussions/new?category=q-a">Ask Question</a></p>
   <p><a href="/docs/README-ID.md">Indonesia</a> · <a href="/docs/README-KR.md">한국어</a> · <a href="/docs/README-FR.md">Français</a></p>
   <a href="https://github.com/FajarKim/blind-bash/releases"><img src="https://custom-icon-badges.demolab.com/github/v/tag/FajarKim/blind-bash?label=Version&labelColor=302d41&color=f2cdcd&logoColor=d9e0ee&logo=tag&style=for-the-badge" alt="Version"/></a>
   <a href="https://github.com/FajarKim/blind-bash/stargazers/"><img src="https://custom-icon-badges.demolab.com/github/stars/FajarKim/blind-bash?label=Stars&logo=star&labelColor=302d41&color=c9cbff&logoColor=d9e0ee&style=for-the-badge" alt="Stars"></a>
@@ -114,6 +114,14 @@ This tool is programmed to be run with several commands. Supported commands:
   <tr>
     <td><div align="left"><code>-f</code> or <code>--file</code></div></td>
     <td><div align="left">Starting obfuscated files name.</div></td>
+  </tr>
+  <tr>
+    <td><div align="left"><code>--upgrade</code></div></td>
+    <td><div align="left">Upgrade version this tool.</div></td>
+  </tr>
+  <tr>
+    <td><div align="left"><code>--uninstall</code></div></td>
+    <td><div align="left">Uninstall this tool.</div></td>
   </tr>
 </table>
 
